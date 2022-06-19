@@ -622,7 +622,7 @@ end)
 
 LEOOnduty = false
 FireOnduty = false
-LEOPublic = true
+LEOPublic = false
 
 AddEventHandler('PlayerSpawned', function()
     if TriggerServerEvent('CattyCore:CheckPerms',src , 'sem.always') then
