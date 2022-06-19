@@ -622,57 +622,40 @@ end)
 
 LEOOnduty = false
 FireOnduty = false
-RegisterCommand('onduty', function(source, args, rawCommand)
-    if Config.LEOAccess == 3 or Config.FireAccess == 3 then
-        if Config.OndutyPSWDActive then
-            if args[2] == Config.OndutyPSWD then
-                local Department = args[1]:lower()
-                if Department == 'leo' then
-                    LEOOnduty = not LEOOnduty
-                    if LEOOnduty then
-                        Notify('~g~You are onduty as an LEO')
-                    else
-                        Notify('~o~You are no longer onduty as an LEO')
-                    end
-                elseif Department == 'fire' then
-                    FireOnduty = not FireOnduty
-                    if FireOnduty == true then
-                        Notify('~g~You are onduty as an Firefighter')
-                    else
-                        Notify('~o~You are no longer onduty as an Firefighter')
-                    end
-                else
-                    Notify('~r~Invalid Department!')
-                end
-            else
-                Notify('~r~Incorrect Password')
-            end
-        else
-            local Department = args[1]:lower()
-            if Department == 'leo' then
-                LEOOnduty = not LEOOnduty
-                if LEOOnduty then
-                    Notify('~g~You are onduty as an LEO')
-                else
-                    Notify('~o~You are no longer onduty as an LEO')
-                end
-            elseif Department == 'fire' then
-                FireOnduty = not FireOnduty
-                if FireOnduty == true then
-                    Notify('~g~You are onduty as an Firefighter')
-                else
-                    Notify('~o~You are no longer onduty as an Firefighter')
-                end
-            else
-                Notify('~r~Invalid Department!')
-            end
-        end
+LEOPublic = true
+
+AddEventHandler('PlayerSpawned', function()
+    if TriggerServerEvent('CattyCore:CheckPerms',src , 'sem.always') then
+        LEOOnduty = true
+        FireOnduty = true
     end
+end)
+
+RegisterNetEvent('knight-duty:onenterduty')
+RegisterNetEvent('knight-duty:onexitduty')
+
+AddEventHandler('knight-duty:onenterduty', function(unit)
+        if unit['isleo'] then
+            LEOOnduty = true
+        end
+        if unit['isfire'] then
+            FireOnduty = true
+        end
+        if unit['ispublic'] then
+            LEOPublic = true
+        end
+end)
+
+AddEventHandler('knight-duty:onexitduty', function()
+        LEOOnduty = false
+        FireOnduty = false
+        LEOPublic = false
 end)
 
 function IsOndutyLEO()
     return LEOOnduty
 end
+
 function IsOndutyFire()
     return FireOnduty
 end
