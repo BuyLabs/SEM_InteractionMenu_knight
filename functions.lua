@@ -401,7 +401,13 @@ function LEORestrict()
             end
         end
     elseif Config.LEOAccess == 3 then
-        return LEOOnduty
+        if LEOOnduty then
+            return true
+        elseif LEOPublic then
+            return true
+        else
+            return false 
+        end
     elseif Config.LEOAccess == 4 then
         return LEOAce
     else
