@@ -14,14 +14,12 @@ SEM_InteractionMenu was created using NativeUI [LUA]
 ### Information:
 Current Version: **v1.7.1**
 
-Changes: **• Fixes menu item skipping**
-
-**THIS UPDATE *ONLY* AFFECTS THE DEPENDENCY NATIVEUI - YOU CAN JUST UPDATE THAT FILE *(NO OTHER FILES WERE CHANGED!)***
-
+Changes: **Added knight duty support (Not togglable yet)**
+THIS IS NOT SUPPORTED BY Sc0tt M or SEM Development, if you have any issues with this release then make a issue ticket on github or join my support discord 
 
 ### Links:
 
-Support/Discord: [Click Here](https://semdevelopment.com/discord)
+SEM DEVELOPMENT DISCORD: [Click Here](https://semdevelopment.com/discord)
 
 Information: [Click Here](https://semdevelopment.com/releases/interactionmenu)
 
