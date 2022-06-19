@@ -95,20 +95,22 @@ function Menu()
                 end
                 LEOActions:AddItem(Inventory)
                 LEOActions:AddItem(BAC)
-				if Config.LEOJail then
+				if LEOOnduty then
                     LEOActions:AddItem(Jail)
-                    if UnjailAllowed then
+                    if LEOOnduty then
                         LEOActions:AddItem(Unjail)
                     end
 				end
-                LEOActions:AddItem(Spikes)
-                LEOActions:AddItem(DelSpikes)
+                if LEOOnduty then
+                    LEOActions:AddItem(Spikes)
+                    LEOActions:AddItem(DelSpikes)
+                end
                 LEOActions:AddItem(Shield)
                 if Config.UnrackWeapons == 1 or Config.UnrackWeapons == 2 then
                     LEOActions:AddItem(CarbineRifle)
                     LEOActions:AddItem(Shotgun)
                 end
-                if Config.DisplayProps then
+                if LEOOnduty then
                     LEOActions:AddItem(Props)
                     LEOActions:AddItem(RemoveProps)
                 end
@@ -385,7 +387,7 @@ function Menu()
                     end
             end
 
-            if Config.ShowLEOVehicles then
+            if Config.ShowLEOVehicles and LEOPublic then
                 local LEOVehicles = _MenuPool:AddSubMenu(LEOMenu, 'Vehicles', '', true)
                 LEOVehicles:SetMenuWidthOffset(Config.MenuWidth)
                 
@@ -405,7 +407,7 @@ function Menu()
                 end
             end
 
-            if Config.DisplayTrafficManager then
+            if Config.DisplayTrafficManager and LEOOnduty then
                 local LEOTrafficManager = _MenuPool:AddSubMenu(LEOMenu, 'Traffic Manager', '', true)
                 LEOTrafficManager:SetMenuWidthOffset(Config.MenuWidth)
         
