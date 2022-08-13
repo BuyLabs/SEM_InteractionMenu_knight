@@ -14,7 +14,7 @@ SEM_InteractionMenu was created using NativeUI [LUA]
 ### Information:
 Current Version: **v1.7.1**
 
-Changes: **Added knight duty support (Not togglable yet)**
+Changes: **Added knight duty support**
 THIS IS NOT SUPPORTED BY Sc0tt M or SEM Development, if you have any issues with this release then make a issue ticket on github or join my support discord 
 
 ### Links:
